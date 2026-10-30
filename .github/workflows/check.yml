@@ -1,0 +1,32 @@
+name: Check
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      COMPANION_HC: ${{ github.workspace }}/.data/bin/hc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm install:core
+      - run: pnpm check:generated
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm test:integration
+      - run: pnpm build:bridge
+      - run: pnpm build:web
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:e2e:web
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-evidence
+          path: test-results/

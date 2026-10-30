@@ -1,0 +1,12 @@
+appId: dev.companion.herdr
+---
+- launchApp:
+    stopApp: false
+- openLink: "herdr-companion:///settings"
+- extendedWaitUntil:
+    visible: "Appearance"
+    timeout: 15000
+- setOrientation: LANDSCAPE_LEFT
+- takeScreenshot: ${OUTPUT_DIR}/settings-landscape
+- setOrientation: PORTRAIT
+- takeScreenshot: ${OUTPUT_DIR}/settings-portrait

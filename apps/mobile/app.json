@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Herdr Companion",
+    "slug": "herdr-companion",
+    "version": "0.1.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "scheme": "herdr-companion",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.companion.herdr"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F6F2",
+        "foregroundImage": "./assets/mark.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "dev.companion.herdr"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F6F2",
+          "image": "./assets/mark.png",
+          "imageWidth": 76
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose images to send to your terminal session.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-sharing"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

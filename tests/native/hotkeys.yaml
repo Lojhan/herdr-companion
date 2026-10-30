@@ -1,0 +1,49 @@
+appId: dev.companion.herdr
+---
+- runFlow: iphone.yaml
+- tapOn: "${SPACE_LABEL}"
+- extendedWaitUntil:
+    visible: "Connected"
+    timeout: 15000
+- tapOn: "Manage hotkeys"
+- tapOn:
+    id: field-hotkey-label
+- inputText: "Native saved"
+- tapOn:
+    id: field-shortcut
+- inputText: "Ctrl+B, %"
+- scrollUntilVisible:
+    element:
+      text: "Add hotkey"
+    direction: DOWN
+    timeout: 10000
+- tapOn: "Add hotkey"
+- assertVisible: "Edit hotkey Native saved"
+- takeScreenshot: ${OUTPUT_DIR}/hotkey-saved
+- tapOn: "Close Custom hotkeys"
+- stopApp
+- launchApp
+- openLink: "herdr-companion://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081"
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"
+- extendedWaitUntil:
+    visible: "Herdr workspace|Back to spaces and agents"
+    timeout: 30000
+- openLink: "herdr-companion:///"
+- scrollUntilVisible:
+    element:
+      text: "${SPACE_LABEL}"
+    direction: DOWN
+    timeout: 20000
+- tapOn: "${SPACE_LABEL}"
+- extendedWaitUntil:
+    visible: "Connected"
+    timeout: 15000
+- tapOn: "Manage hotkeys"
+- assertVisible: "Edit hotkey Native saved"
+- takeScreenshot: ${OUTPUT_DIR}/hotkey-after-restart
+- tapOn: "Delete hotkey Native saved"
+- tapOn: "Close Custom hotkeys"

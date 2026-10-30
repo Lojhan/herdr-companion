@@ -1,0 +1,107 @@
+{
+  "sources": [
+    {
+      "repository": "https://github.com/herdrdev/herdr-core",
+      "commit": "dbcdcffc779f7516d5815cbd6f0a37da2b5e6628",
+      "files": [
+        "schema/hc.openrpc.json",
+        "schema/README.md",
+        "docs/security.md",
+        "docs/templates.md",
+        "docs/machines.md",
+        "LICENSE"
+      ],
+      "destination": "vendor/herdr-core",
+      "license": "Apache-2.0",
+      "modifications": "None; verbatim source references. Core schema feeds generated derivatives."
+    },
+    {
+      "repository": "https://github.com/herdrdev/herdr-app",
+      "commit": "3e32d75e7aa2327d7b1f89caf3d5dafd1f44f1b2",
+      "files": [
+        "src/mirror.rs",
+        "src/mirror_sync.rs",
+        "src/layout.rs",
+        "LICENSE",
+        "src/settings.rs",
+        "defaults/layouts/main.json",
+        "defaults/mods/spaces/main.js",
+        "defaults/mods/agents/main.js",
+        "defaults/mods/tabs/main.js",
+        "defaults/mods/workspace-chrome/main.js",
+        "defaults/mods/workspace-status/main.js",
+        "defaults/mods/workspace-chrome/search.svg",
+        "defaults/mods/workspace-chrome/chevron-down.svg",
+        "defaults/mods/workspace-chrome/files.svg",
+        "defaults/mods/workspace-chrome/terminal.svg",
+        "defaults/mods/workspace-chrome/file-text.svg",
+        "defaults/mods/workspace-chrome/x.svg",
+        "defaults/mods/workspace-chrome/settings.svg",
+        "defaults/mods/workspace-chrome/archive.svg",
+        "defaults/mods/workspace-chrome/server.svg",
+        "defaults/mods/workspace-chrome/layers.svg",
+        "defaults/mods/workspace-chrome/git-branch.svg",
+        "defaults/mods/workspace-chrome/plus.svg",
+        "defaults/mods/workspace-chrome/check.svg",
+        "defaults/mods/workspace-chrome/sidebar.svg",
+        "defaults/mods/workspace-chrome/git-compare.svg",
+        "defaults/mods/workspace-chrome/clock.svg",
+        "defaults/mods/workspace-chrome/folder.svg",
+        "defaults/mods/workspace-chrome/monitor.svg",
+        "defaults/mods/workspace-chrome/chevron-left.svg",
+        "LICENSE.lucide",
+        "defaults/mods/prompt/main.js",
+        "defaults/mods/machine-add/main.js"
+      ],
+      "destination": "vendor/herdr-app",
+      "license": "Apache-2.0",
+      "modifications": "Verbatim source references retained. Palette resolution ported to apps/mobile/src/lib/theme.tsx; layout dimensions and sidebar/tab/pane treatments adapted to React Native. Read-only document projection adapted from mirror.rs. Source SVG paths adapted to square React Native SVG components; root CSS class removed for native/web portability. Supplemental icons use matching 24-unit geometry. Lucide ISC/MIT attribution retained alongside the Herdr license. Prompt and machine-add sizing/typography adapted to shared form tokens and components."
+    },
+    {
+      "repository": "https://github.com/xtermjs/xterm.js",
+      "version": "6.0.0",
+      "files": [
+        "lib/xterm.js",
+        "css/xterm.css",
+        "LICENSE"
+      ],
+      "destination": "apps/mobile/src/components/terminal-document.ts",
+      "license": "MIT",
+      "modifications": "Bundled JS/CSS in generated local HTML with a companion WebView messaging adapter. License retained at packages/terminal-web/LICENSE.xterm."
+    },
+    {
+      "repository": "https://github.com/herdrdev/herdr-app",
+      "commit": "3e32d75e7aa2327d7b1f89caf3d5dafd1f44f1b2",
+      "files": [
+        "assets/fonts/Geist.ttf",
+        "assets/fonts/JetBrainsMono-Variable.ttf",
+        "assets/fonts/OFL.txt",
+        "assets/fonts/OFL-JetBrainsMono.txt"
+      ],
+      "destination": "apps/mobile/assets/fonts",
+      "license": "SIL Open Font License 1.1",
+      "modifications": "Unmodified font files. Original copyright notices and full SIL OFL licenses retained in the destination."
+    },
+    {
+      "repository": "https://github.com/herdrdev/herdr-app",
+      "commit": "3e32d75e7aa2327d7b1f89caf3d5dafd1f44f1b2",
+      "files": [
+        "defaults/frame/welcome/herdr.png"
+      ],
+      "destination": "apps/mobile/assets/herdr.png",
+      "license": "Apache-2.0",
+      "modifications": "Unmodified workspace brand image, used with the companion label. Installer icon and identifiers remain distinct."
+    },
+    {
+      "repository": "https://github.com/xtermjs/xterm.js",
+      "version": "@xterm/addon-fit 0.11.0",
+      "files": [
+        "lib/addon-fit.js",
+        "LICENSE"
+      ],
+      "destination": "apps/mobile/src/components/terminal-document.ts",
+      "license": "MIT",
+      "modifications": "FitAddon bundled alongside xterm for measured cell sizing on web and native."
+    }
+  ]
+}

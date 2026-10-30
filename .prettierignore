@@ -1,0 +1,4 @@
+**/generated/**
+**/terminal-document.ts
+vendor/
+pnpm-lock.yaml

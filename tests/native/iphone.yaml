@@ -1,0 +1,82 @@
+appId: dev.companion.herdr
+---
+- launchApp
+- openLink: "herdr-companion://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081"
+- runFlow:
+    when:
+      visible: "Open"
+    commands:
+      - tapOn: "Open"
+- extendedWaitUntil:
+    visible: "Runtime version: exposdk:58.0.0|Herdr workspace|Back to spaces and agents"
+    timeout: 30000
+- runFlow:
+    when:
+      visible: "Runtime version: exposdk:58.0.0"
+    commands:
+      - tapOn:
+          id: "xmark"
+- openLink: "herdr-companion:///settings"
+- extendedWaitUntil:
+    visible: "Appearance"
+    timeout: 30000
+- runFlow:
+    when:
+      visible: "Disconnect this device"
+    commands:
+      - tapOn: "Disconnect this device"
+- tapOn:
+    id: "field-device-name"
+- eraseText: 100
+- inputText: "Native iPhone audit"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: "field-pairing-details"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    id: "field-pairing-details"
+- inputText: "${PAIRING_JSON}"
+- swipe:
+    start: "98%,45%"
+    end: "98%,20%"
+    duration: 500
+- scrollUntilVisible:
+    element:
+      text: "Pair this device"
+    centerElement: true
+    direction: DOWN
+    timeout: 10000
+- tapOn: "Pair this device"
+- extendedWaitUntil:
+    visible: "Device paired. Your inventory is ready."
+    timeout: 30000
+- takeScreenshot: ${OUTPUT_DIR}/paired-settings
+- openLink: "herdr-companion:///"
+- extendedWaitUntil:
+    visible: "Core connected"
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      text: "${SPACE_LABEL}"
+    direction: DOWN
+    timeout: 20000
+    centerElement: true
+- tapOn: "${SPACE_LABEL}"
+- extendedWaitUntil:
+    visible: "Connected"
+    timeout: 15000
+- takeScreenshot: ${OUTPUT_DIR}/terminal-observe
+- tapOn:
+    id: "terminal-command-input"
+- inputText: "native-ui-audit"
+- takeScreenshot: ${OUTPUT_DIR}/terminal-keyboard
+- tapOn: "Send command"
+- extendedWaitUntil:
+    visible: "ack:native-ui-audit"
+    timeout: 15000
+- hideKeyboard
+- takeScreenshot: ${OUTPUT_DIR}/terminal-response
+- openLink: "herdr-companion:///"
+- takeScreenshot: ${OUTPUT_DIR}/workspace

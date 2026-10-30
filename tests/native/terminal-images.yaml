@@ -1,0 +1,32 @@
+appId: dev.companion.herdr
+---
+- runFlow: iphone.yaml
+- scrollUntilVisible:
+    element:
+      text: "${SPACE_LABEL}"
+    direction: DOWN
+    timeout: 20000
+- tapOn: "${SPACE_LABEL}"
+- extendedWaitUntil:
+    visible: "Connected"
+    timeout: 15000
+- tapOn: "Attach images"
+- takeScreenshot: ${OUTPUT_DIR}/image-picker
+- tapOn:
+    text: "Photo,.*"
+    index: 0
+- tapOn:
+    text: "Add.*"
+- extendedWaitUntil:
+    visible: "Remove image .*"
+    timeout: 15000
+- tapOn:
+    id: "terminal-command-input"
+- inputText: "native-image-test"
+- takeScreenshot: ${OUTPUT_DIR}/image-attached
+- tapOn: "Send command"
+- extendedWaitUntil:
+    visible: "ack:native-image-test.*"
+    timeout: 15000
+- hideKeyboard
+- takeScreenshot: ${OUTPUT_DIR}/image-response
