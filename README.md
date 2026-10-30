@@ -4,6 +4,46 @@ An independent phone and browser client for new herdr-core. This repository impl
 
 Implemented: a Herdr-style responsive workspace with source-derived palettes/Geist typography, shared desktop spaces and new terminal/agent tabs, real core inventory and reported attention state, local approval pairing, revocation, browser cookie sessions, automatic terminal control, resizable file/diff panels, and native image input with saved custom hotkeys. The bridge stays on loopback and does not own the agents' PTYs. Task provisioning and cleanup are not enabled yet.
 
+## Screenshots and walkthrough
+
+[Watch or download the walkthrough (37 seconds, MP4)](https://github.com/Lojhan/herdr-companion/raw/refs/heads/main/docs/media/walkthrough.mp4)
+
+A live web-client capture of desktop and phone layouts: terminal output, working-tree and staged diffs, file actions, source browsing, media previews, and the collapsed sidebar. No titles, captions, or added overlays.
+
+[![Desktop workspace with a live terminal and Git diff](docs/media/desktop-diff.png)](https://github.com/Lojhan/herdr-companion/raw/refs/heads/main/docs/media/walkthrough.mp4)
+
+<table>
+  <tr>
+    <th>Phone home</th>
+    <th>Changes</th>
+    <th>File preview</th>
+  </tr>
+  <tr>
+    <td><img src="docs/media/phone-home.png" alt="Phone layout showing spaces, agent statuses and machines" width="250"></td>
+    <td><img src="docs/media/phone-diff.png" alt="Phone layout showing a real Git diff" width="250"></td>
+    <td><img src="docs/media/phone-files.png" alt="Phone layout showing a source file with line numbers" width="250"></td>
+  </tr>
+</table>
+
+<details>
+<summary>More screenshots</summary>
+
+**Diff actions**
+
+![Diff context menu with file explorer, copy and download actions](docs/media/diff-actions.png)
+
+**Files and media**
+
+![Desktop source file preview](docs/media/desktop-files.png)
+
+![Desktop image preview](docs/media/desktop-media.png)
+
+**Collapsed sidebar**
+
+![Compact sidebar beside a staged diff](docs/media/desktop-collapsed.png)
+
+</details>
+
 ## Run the local sandbox
 
 Use Node 24 and pnpm 10.32.1. The native app uses Expo SDK 58 and development builds.
